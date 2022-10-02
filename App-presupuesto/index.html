@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Presupuesto</title>
+    <link href="css/estilos.css" rel='stylesheet'/>
+</head>
+<body onload='cargarApp()'>
+    <div class="cabecera">
+        <div class="presupuesto">
+            <div class="presupuesto_titulo">
+                Presupuesto Disponible
+            </div>
+            <div class="presupuesto_valor" id='presupuesto'>+ 2,000.00</div>
+            <div class="presupuesto_ingreso limpiarEstilos">
+                <div class="presupuesto_ingreso--texto">Ingresos</div>
+                <div class="derecha">
+                    <div class="presupuesto_ingreso--valor" id='ingresos'>+4,000.00</div>
+                    <div class="presupuesto_ingreso--porcentaje" id='porc_i'>&nbsp;</div>
+                </div>
+            </div>
+            <div class="presupuesto_gasto limpiarEstilos">
+                <div class="presupuesto_gasto--texto">Gastos</div>
+                <div class="derecha limpiarEstilos">
+                    <div class="presupuesto_gasto--valor" id='gastos'>- 1,900.00</div>
+                    <div class="presupuesto_gasto--porcentaje" id='porc_g'>45%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="formulario" onsubmit="return false">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select class="agregar_tipo" id="tipo">
+                    <option value="ingreso" selected>+</option>
+                    <option value="gasto" selected>-</option>
+                </select>
+                <input type="text" class="agregar_descripcion"
+                placeholder="Agregar descripción" id="desc"/>
+                <input type="number" class="agregar_valor"
+                placeholder="Valor" id="val" step="any"/>
+                <button class="agregar-btn" onclick="agregarDato()">
+                    <ion-icon name="checkbox-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="contenedor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class="ingreso_titulo">Ingresos</h2>
+            <div id="lista-ingresos">
+            </div>
+        </div>
+
+        <div class="gasto">
+            <h2 class="gasto_titulo">Gastos</h2>
+            <div id="lista-gastos">
+            </div>
+        </div>
+    </div>
+    <script src='app/Dato.js'></script>
+    <script src='app/Ingreso.js'></script>
+    <script src='app/Gasto.js'></script>
+    <script src='app/app.js'></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
